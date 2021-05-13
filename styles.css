@@ -1,0 +1,29 @@
+.product-picture {
+    height: 300px;
+    width: 300px;
+ 
+}
+.product-title {
+    font-weight: bold;
+    margin-top: 10px;
+}
+.navbar-titletext {
+    font-family: 'Parisienne', cursive;
+    font-size: 4rem;
+    margin-left: 14%;
+}
+.footer-text {
+    color: beige;
+}
+.fab {
+    color: beige;
+    padding: 0 3px 0 3px
+}
+.fab:hover {
+    color: chocolate;
+}
+.footer {
+    text-align: center;
+    height: 200px;
+    padding: 70px;
+}
