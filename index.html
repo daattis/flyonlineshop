@@ -35,10 +35,10 @@
       <ul class="navbar-nav ml-auto">
           
           <li class="nav-item">
-              <a class="nav-link" href="#pricing">Read more</a>
+              <a class="nav-link" href="#..">Read more</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#cta">My Cart</a>
+              <a class="nav-link" href="#cart">My Cart</a>
           </li>
       </ul>
    </div>
@@ -76,7 +76,7 @@
               <h4 class="card-title"><a href="#!">Item One</a></h4>
               <h5>$24.99</h5>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              <button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
+              <button type="button" class="btn btn-lg btn-block btn-outline-primary" id="1">Add to cart</button>
             </div>
           </div>
 
@@ -97,7 +97,7 @@
               <h4 class="card-title"><a href="#!">Item One</a></h4>
               <h5>$24.99</h5>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              <button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
+              <button type="button" class="btn btn-lg btn-block btn-outline-primary" id="2">Add to cart</button>
             </div>
           </div>
 
@@ -118,7 +118,7 @@
               <h4 class="card-title"><a href="#!">Item One</a></h4>
               <h5>$24.99</h5>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              <button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
+              <button type="button" class="btn btn-lg btn-block btn-outline-primary" id="3">Add to cart</button>
             </div>
           </div>
 
@@ -139,7 +139,7 @@
                     <h4 class="card-title"><a href="#!">Item One</a></h4>
                     <h5>$24.99</h5>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
+                    <button type="button" class="btn btn-lg btn-block btn-outline-primary" id="4">Add to cart</button>
                   </div>
                 </div>
       
@@ -160,7 +160,7 @@
               <h4 class="card-title"><a href="#!">Item One</a></h4>
               <h5>$24.99</h5>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              <button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
+              <button type="button" class="btn btn-lg btn-block btn-outline-primary" id="5">Add to cart</button>
             </div>
           </div>
 
@@ -181,7 +181,7 @@
               <h4 class="card-title"><a href="#!">Item One</a></h4>
               <h5>$24.99</h5>
               <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              <button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to cart</button>
+              <button type="button" class="btn btn-lg btn-block btn-outline-primary" id="6">Add to cart</button>
             </div>
           </div>
 
@@ -195,7 +195,47 @@
 
 
 <!-----CART------>
-   <section class="cart"></section>
+   <section class="cart" id="cart">
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4">My Cart</h1>
+      <p class="lead">
+        Below lies the products of your choosing.<br>
+      </p>
+
+      <table class="table-cart">
+        <thead>
+          <tr>
+            <th>ITEM</th>
+            <th>QUANTITY</th>
+            <th>PRICE</th>
+            <th>DELETE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Item name</td>
+            <td>Change quantity here</td>
+            <td>Price</td>
+            <td><i class="fas fa-trash-alt"></i></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td></td>
+            <td>Total price here</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tfoot>
+
+        
+    </table>
+    <div class="checkout">
+    <button type="button" class="btn-lg btn-block btn-outline-primary">Continue to checkout</button>
+  </div>
+  </div>
+
+   </section>
 
 
 <!-----FOOTER----->
