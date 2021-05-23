@@ -1,34 +1,108 @@
 .product-picture {
-    height: 300px;
-    width: 300px;
- 
+  height: 300px;
+  width: 300px;
 }
 .product-title {
-    font-weight: bold;
-    margin-top: 10px;
+  font-weight: bold;
+  margin-top: 10px;
 }
 .navbar-titletext {
-    font-family: 'Parisienne', cursive;
-    font-size: 4rem;
-    margin-left: 14%;
+  font-family: "Parisienne", cursive;
+  font-size: 4rem;
+  margin-left: 14%;
+}
+.navbar-nav {
+  margin-right: 26%;
 }
 .footer-text {
-    color: beige;
+  color: beige;
 }
 .fab {
-    color: beige;
-    padding: 0 3px 0 3px
+  color: beige;
+  padding: 0 3px 0 3px;
 }
 .fab:hover {
-    color: chocolate;
+  color: chocolate;
 }
 .footer {
-    text-align: center;
-    height: 200px;
-    padding: 70px;
+  text-align: center;
+  height: 200px;
+  padding: 70px;
+}
+.card {
+  margin: auto;
+  max-width: 950px;
+  width: 90%;
+  box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 1rem;
+  border: transparent;
+}
+.lead {
+  margin-bottom: 30px;
 }
 .cart {
- 
-    text-align: center;
-    margin: 10px 50px;
+  padding: 0 60px 0 50px;
+}
+.cart-item {
+  width: 45%;
+}
+.cart-header {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #333;
+}
+.cart-column {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid black;
+  margin-right: 1.5rem;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+.cart-row {
+  display: flex;
+}
+.cart-price {
+  width: 20%;
+  font-size: 1.2em;
+  color: #333;
+}
+.cart-quantity {
+  width: 35%;
+}
+.cart-item-image {
+  width: 75px;
+  height: auto;
+  border-radius: 10px;
+  margin: 10px;
+}
+.cart-item-title {
+  color: #333;
+  margin-left: 0.5em;
+  font-size: 1.2em;
+}
+.cart-quantity-input {
+  height: 34px;
+  width: 50px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  margin-right: 25px;
+  border: 1px solid #5c5c5c;
+  text-align: center;
+}
+.cart-total {
+  text-align: end;
+  margin: 10px 10px 10px 0;
+  padding-right: 20px;
+}
+.cart-total-title {
+  font-size: 1.5rem;
+  margin-right: 20px;
+}
+.cart-total-price {
+  color: #333;
+  font-size: 1.1em;
+}
+.checkout {
+  margin: 30px auto;
 }
