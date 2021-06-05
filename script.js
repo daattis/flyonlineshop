@@ -214,7 +214,7 @@ const products = [
   },
 ];
 
-//Render products to shop
+//Render products
 
 for (var i = 0; i < products.length; i++){
 let productTitle = products[i].title;
