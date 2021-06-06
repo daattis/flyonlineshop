@@ -90,6 +90,7 @@ if (document.readyState == "loading") {
   ready();
 }
 
+
 function ready() {
   
 //Render products

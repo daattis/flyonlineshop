@@ -106,3 +106,17 @@
 .checkout {
   margin: 30px auto;
 }
+.readmore {
+  padding-bottom: 100px;
+}
+.readmore-content {
+  width: 50%;
+  margin: 30px auto 30px 25%;
+  text-align: left;
+}
+.readmore-img {
+  border-radius: 100%;
+  width: 20%;
+  margin-right: 30px;
+  float: left;
+}
