@@ -258,4 +258,6 @@ function updateTotalPrice() {
 }
 
 
-
+fetch('https://daattis.github.io/flyonlineshop/productdata.json')
+  .then(response => response.json())
+  .then(data => console.log(data));
