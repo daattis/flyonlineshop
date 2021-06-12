@@ -1,87 +1,3 @@
-const products = [
-  {
-    title: "Ambulance",
-    description: "Big fly to start the season on colored water",
-    image: "images/tubefly1.jpeg",
-    price: 19.99,
-  },
-  {
-    title: "Silvergrey",
-    description: "Must have in northern clear waters",
-    image: "images/tubefly2.jpeg",
-    price: 14.99,
-  },
-  {
-    title: "Yellow variant",
-    description: "Seatrout special turned to salmon fly",
-    image: "images/tubefly3.jpeg",
-    price: 11.99,
-  },
-  {
-    title: "Phata, Sillen, Mikkeli, WG",
-    description: "Big 4 to fresh runners at June",
-    image: "images/tubefly4.jpeg",
-    price: 39.99,
-  },
-  {
-    title: "MikkeliBlue",
-    description: "These are legendary night time flies for salmon or big trout",
-    image: "images/tubefly5.jpeg",
-    price: 14.99,
-  },
-  {
-    title: "Colored set",
-    description: "At Autumn to fresh seatrouts in rivers",
-    image: "images/tubefly6.jpeg",
-    price: 24.99,
-  },
-  {
-    title: "Pahtagorva",
-    description: "Set includes different sizes flies for optimize the Moment",
-    image: "images/tubefly7.jpeg",
-    price: 39.99,
-  },
-  {
-    title: "MikkeliBLue XL",
-    description:
-      "Bigger ones Mikkeliblues than item five, for big fish at night",
-    image: "images/tubefly8.jpeg",
-    price: 16.99,
-  },
-  {
-    title: "Samurai",
-    description:
-      "Evolution of Legendary SunrayShadow. Floating line and some speed to line...",
-    image: "images/tubefly9.jpeg",
-    price: 14.99,
-  },
-  {
-    title: "SpringFly",
-    description: "You need only one fly in april and this is the one",
-    image: "images/tubefly10.jpeg",
-    price: 11.99,
-  },
-  {
-    title: "Copper Pahtakorva",
-    description: "This is the one to that deep pool",
-    image: "images/tubefly11.jpeg",
-    price: 14.99,
-  },
-  {
-    title: "Bomber",
-    description:
-      "Fishing with floating line and need to get bit deeper, this is it",
-    image: "images/tubefly12.jpeg",
-    price: 9.99,
-  },
-  {
-    title: "Phatagorva set",
-    description:
-      "Large set of Phatas, therse will do it, if don`t tehre`s no fish",
-    image: "images/tubefly13.jpeg",
-    price: 99.99,
-  },
-];
 
 //check if the page is done loading
 if (document.readyState == "loading") {
@@ -90,50 +6,9 @@ if (document.readyState == "loading") {
   ready();
 }
 
-
 function ready() {
-  
-//Render products
-
-for (var i = 0; i < products.length; i++){
-  let productTitle = products[i].title;
-  let productImage = products[i].image;
-  let productPrice = products[i].price;
-  let productDesc = products[i].description;
-  
-  let newCard = document.createElement("div"); 
-  newCard.classList.add("pricing-column","col-lg-4","col-md-6","mb-4"); 
-  let productRow = document.getElementById('products-row'); 
-  let cardContent = ` 
-  <div class="card-deck mb-3 text-center">
-    <div class="card mb-4 shadow-sm">
-      <a href="#!">
-        <img
-          class="card-img-top product-image"
-          src="${productImage}"
-          alt="tubefly 1"
-        />
-      </a>
-      <div class="card-body">
-        <h4 class="card-title"><a href="#!">${productTitle}</a></h4>
-        <h5 class="product-price">${productPrice}</h5>
-        <p class="card-text">
-          ${productDesc}
-        </p>
-        <button
-          type="button"
-          class="addtocart btn btn-lg btn-block btn-outline-primary"
-          id="1">
-          Add to cart
-        </button>
-      </div>
-    </div>
-  </div>`
-  
-  newCard.innerHTML = cardContent;
-  productRow.append(newCard);
-  }
-
+ 
+  readJSON();
 
   let removeButton = document.getElementsByClassName("btn-danger");
   for (var i = 0; i < removeButton.length; i++) {
@@ -147,7 +22,10 @@ for (var i = 0; i < products.length; i++){
     input.addEventListener("change", quantityChanged);
   }
 
+  //tämä hajos?
+  
   let addToCartButtons = document.getElementsByClassName("addtocart");
+  console.log(addToCartButtons)
   for (var i = 0; i < addToCartButtons.length; i++) {
     let button = addToCartButtons[i];
     button.addEventListener("click", addtoCartClicked);
@@ -155,6 +33,71 @@ for (var i = 0; i < products.length; i++){
 
   checkoutButton = document.getElementsByClassName("checkout-btn")[0].addEventListener("click", checkoutClicked);
 }
+
+function readJSON () {
+  fetch('https://daattis.github.io/flyonlineshop/productdata.json')
+  .then(response => response.json())
+  .then(data => renderProducts(data))
+  .catch((error) => {console.error('Error:', error);
+  });
+};
+
+function renderProducts (data) {
+  let productData = data.products;
+ 
+  for (var i = 0; i < productData.length; i++){
+    let productTitle = productData[i].title;
+    let productImage = productData[i].image;
+    let productPrice = productData[i].price;
+    let productDesc = productData[i].description;
+    
+    let newCard = document.createElement("div"); 
+    newCard.classList.add("pricing-column","col-lg-4","col-md-6","mb-4"); 
+    let productRow = document.getElementById('products-row'); 
+    let cardContent = ` 
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 shadow-sm">
+        <a href="#!">
+          <img
+            class="card-img-top product-image"
+            src="${productImage}"
+            alt="tubefly 1"
+          />
+        </a>
+        <div class="card-body">
+          <h4 class="card-title"><a href="#!">${productTitle}</a></h4>
+          <h5 class="product-price">${productPrice}</h5>
+          <p class="card-text">
+            ${productDesc}
+          </p>
+          <button
+            type="button"
+            class="addtocart btn btn-lg btn-block btn-outline-primary"
+            id="1">
+            Add to cart
+          </button>
+        </div>
+      </div>
+    </div>`
+    
+    newCard.innerHTML = cardContent;
+    productRow.append(newCard);
+    }
+};
+
+
+function checkCartContent () {
+  let checkoutBtn = document.getElementById('checkout-btn').classList;
+  let checkCartItems = document.getElementsByClassName('check-cart-item');
+  if ( checkCartItems.length > 0) {
+    checkoutBtn.remove('btn-ligth');
+    checkoutBtn.add('btn-warning');
+  } else if (checkCartItems.length === 0) {
+    checkoutBtn.add('btn-ligth');
+    checkoutBtn.remove('btn-warning');
+  }
+};
+
 
 function checkoutClicked() {
   alert("Thank you for your purchase.");
@@ -192,7 +135,7 @@ function addItemToCart(title, price, thumbnail) {
   }
 
   let cartRowContents = `
-  <div class="cart-item cart-column">
+  <div class="cart-item cart-column check-cart-item">
               <img
                 class="cart-item-image"
                 src="${thumbnail}"
@@ -219,12 +162,14 @@ function addItemToCart(title, price, thumbnail) {
     .addEventListener("change", quantityChanged);
 
   updateTotalPrice();
+  checkCartContent();
 }
 
 function removeCartItem(event) {
   let buttonClicked = event.target;
   buttonClicked.parentElement.parentElement.remove();
   updateTotalPrice();
+  checkCartContent ();
 }
 
 function quantityChanged(event) {
@@ -258,6 +203,3 @@ function updateTotalPrice() {
 }
 
 
-fetch('https://daattis.github.io/flyonlineshop/productdata.json')
-  .then(response => response.json())
-  .then(data => console.log(data));
