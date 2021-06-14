@@ -1,9 +1,20 @@
+//check if the page is done loading
+if (document.readyState == "loading") {
+    document.addEventListener("DOMContentLoaded", ready);
+  } else {
+    ready();
+  }
+
+function ready () {
+    readJSON();
+    addEventlisteners();
+  };
+
 function readJSON () {
     fetch('https://daattis.github.io/flyonlineshop/productdata.json')
     .then(response => response.json())
     .then(data => renderProducts(data))
     .catch((error) => {console.error('Error:', error);
-    console.log("fetching stuff")
     });
   };
   
@@ -52,7 +63,7 @@ function readJSON () {
       addEventlisteners();
   };
   
-  function addEventlisteners (){
+  function addEventlisteners () {
     console.log("adding event listeners")
     let removeButton = document.getElementsByClassName("btn-danger");
     for (var i = 0; i < removeButton.length; i++) {
