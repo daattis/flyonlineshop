@@ -11,7 +11,7 @@ function ready () {
   };
 
 function readJSON () {
-    fetch('https://daattis.github.io/flyonlineshop/productdata.json')
+    fetch('products')
     .then(response => response.json())
     .then(data => renderProducts(data))
     .catch((error) => {console.error('Error:', error);
