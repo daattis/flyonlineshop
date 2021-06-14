@@ -19,7 +19,6 @@ function readJSON () {
   };
   
   function renderProducts (data) {
-    console.log("render products on the screen")
     let productData = data.products;
    
     for (var i = 0; i < productData.length; i++){
@@ -64,7 +63,6 @@ function readJSON () {
   };
   
   function addEventlisteners () {
-    console.log("adding event listeners")
     let removeButton = document.getElementsByClassName("btn-danger");
     for (var i = 0; i < removeButton.length; i++) {
       let button = removeButton[i];
@@ -78,7 +76,6 @@ function readJSON () {
     }
   
      let addToCartButtons = document.getElementsByClassName("addtocart");
-    console.log(addToCartButtons)
     for (var i = 0; i < addToCartButtons.length; i++) {
       let button = addToCartButtons[i];
       button.addEventListener("click", addtoCartClicked);
