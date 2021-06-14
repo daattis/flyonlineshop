@@ -1,48 +1,42 @@
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
 
-//check if the page is done loading
-if (document.readyState == "loading") {
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static('public'));
+
+app.get("/", function(req,res) {
+//console.log("you came to the root");
+//res.sendFile(__dirname + "/index.html");
+  
+//checkPageStatus();
+});
+
+function checkPageStatus () {
+ //check if the page is done loading
+ if (document.readyState == "loading") {
   document.addEventListener("DOMContentLoaded", ready);
 } else {
+  console.log("checking page status")
   ready();
-}
+}};
 
 function ready() {
- 
-  readJSON();
-
-  let removeButton = document.getElementsByClassName("btn-danger");
-  for (var i = 0; i < removeButton.length; i++) {
-    let button = removeButton[i];
-    button.addEventListener("click", removeCartItem);
-  }
-
-  let quantityInputs = document.getElementsByClassName("cart-quantity-input");
-  for (var i = 0; i < quantityInputs.length; i++) {
-    let input = quantityInputs[i];
-    input.addEventListener("change", quantityChanged);
-  }
-
-  //tämä hajos?
-  
-  let addToCartButtons = document.getElementsByClassName("addtocart");
-  console.log(addToCartButtons)
-  for (var i = 0; i < addToCartButtons.length; i++) {
-    let button = addToCartButtons[i];
-    button.addEventListener("click", addtoCartClicked);
-  }
-
-  checkoutButton = document.getElementsByClassName("checkout-btn")[0].addEventListener("click", checkoutClicked);
-}
+   readJSON();
+   console.log("read json")
+};
 
 function readJSON () {
   fetch('https://daattis.github.io/flyonlineshop/productdata.json')
   .then(response => response.json())
   .then(data => renderProducts(data))
   .catch((error) => {console.error('Error:', error);
+  console.log("fetching stuff")
   });
 };
 
 function renderProducts (data) {
+  console.log("render products on the screen")
   let productData = data.products;
  
   for (var i = 0; i < productData.length; i++){
@@ -83,8 +77,32 @@ function renderProducts (data) {
     newCard.innerHTML = cardContent;
     productRow.append(newCard);
     }
+    addEventlisteners();
 };
 
+function addEventlisteners (){
+  console.log("adding event listeners")
+  let removeButton = document.getElementsByClassName("btn-danger");
+  for (var i = 0; i < removeButton.length; i++) {
+    let button = removeButton[i];
+    button.addEventListener("click", removeCartItem);
+  }
+
+  let quantityInputs = document.getElementsByClassName("cart-quantity-input");
+  for (var i = 0; i < quantityInputs.length; i++) {
+    let input = quantityInputs[i];
+    input.addEventListener("change", quantityChanged);
+  }
+
+   let addToCartButtons = document.getElementsByClassName("addtocart");
+  console.log(addToCartButtons)
+  for (var i = 0; i < addToCartButtons.length; i++) {
+    let button = addToCartButtons[i];
+    button.addEventListener("click", addtoCartClicked);
+  }
+
+  checkoutButton = document.getElementsByClassName("checkout-btn")[0].addEventListener("click", checkoutClicked);
+}
 
 function checkCartContent () {
   let checkoutBtn = document.getElementById('checkout-btn').classList;
@@ -202,4 +220,6 @@ function updateTotalPrice() {
     total + " €";
 }
 
-
+app.listen(3000, function() {
+    console.log("Server started on port 3000.");
+});
