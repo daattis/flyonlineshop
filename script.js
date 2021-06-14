@@ -6,25 +6,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
 app.get("/", function(req,res) {
-//console.log("you came to the root");
-//res.sendFile(__dirname + "/index.html");
-  
-//checkPageStatus();
+  console.log("you came to the root");
+  readJSON();
+  console.log("reading json");
 });
-
-function checkPageStatus () {
- //check if the page is done loading
- if (document.readyState == "loading") {
-  document.addEventListener("DOMContentLoaded", ready);
-} else {
-  console.log("checking page status")
-  ready();
-}};
-
-function ready() {
-   readJSON();
-   console.log("read json")
-};
 
 function readJSON () {
   fetch('https://daattis.github.io/flyonlineshop/productdata.json')
