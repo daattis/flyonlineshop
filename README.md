@@ -1,4 +1,4 @@
 # flyonlineshop
-Javascript + Bootstrap 4 online shop 
+Javascript + Bootstrap 4 online shop with node + express
 
-Visit: https://daattis.github.io/flyonlineshop/
+
