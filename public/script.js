@@ -48,8 +48,7 @@ function readJSON () {
             </p>
             <button
               type="button"
-              class="addtocart btn btn-lg btn-block btn-outline-primary"
-              id="1">
+              class="addtocart btn btn-lg btn-block btn-outline-primary">
               Add to cart
             </button>
           </div>
