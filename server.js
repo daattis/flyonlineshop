@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const https = require("https");
 const fs = require('fs');
+const dotenv = require('dotenv').config();
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
@@ -41,6 +42,8 @@ app.post("/", function(req,res){
     const request = https.request(url, options, function(response){
         if (response.statusCode === 200) {
             res.sendFile(__dirname + "/public/success.html");
+        } else {
+          res.sendFile(__dirname + "/public/failure.html");
         }
         response.on("data", function(data){
             console.log(JSON.parse(data));
